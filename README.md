@@ -28,6 +28,16 @@ const IntercomFashion = require('intercom-fashion');
 IntercomFashion.load('/path/to/your/custom.css');
 ```
 
+### Adding inline CSS
+
+```js
+IntercomFashion.style(`
+    #intercom-container * {
+        outline: 2px solid rgba(255, 0, 0, .25) !important;
+    }
+`);
+````
+
 ### Using presets
 
 ```js
@@ -61,8 +71,8 @@ IntercomFashion.config({
         background: '#fff'       // The conversation background color
     },
     tooltip: {
-        background: '#000',      // The tooltip background color
         color: '#f8f8f8',        // The tooltip text color
+        background: '#000',      // The tooltip background color
         rounded: true            // Whether the tooltip is rounded
     }
 });
