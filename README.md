@@ -4,7 +4,7 @@
 
 ## Demo
 
-Check out our custom skin using Intercom Fashion [here](https://pageproof.com) (coming soon).
+Check out our custom skin using Intercom Fashion [here](https://pageproof.com/?ref=gh) (coming soon).
 
 ## Features
 
