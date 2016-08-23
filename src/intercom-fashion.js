@@ -7,7 +7,7 @@
         window.IntercomFashion = factory();
     }
 })(function () {
-    var VERSION = '1.0.0';
+    var VERSION = '0.1.0';
     var INTERCOM_CONTAINER = '#intercom-container';
 
     var customStylesheets = [];
