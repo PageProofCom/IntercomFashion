@@ -2,6 +2,17 @@
 
 **Please note: Intercom does not officially support skinning their messenger.**
 
+## Demo
+
+Check out our custom skin using Intercom Fashion [here](https://pageproof.com).
+
+## Features
+
+- Embed custom CSS files/text into the messenger & activator button
+- Support for loading custom webfonts
+- Simple & easy presets like; user chat bubble color, new convo button color, etc...
+- Works with the new Intercom messenger (yes, the one using iframes!)
+
 ## Install
 
 ```sh
