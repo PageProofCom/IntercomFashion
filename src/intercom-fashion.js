@@ -7,7 +7,6 @@
         window.IntercomFashion = factory();
     }
 })(function () {
-    var VERSION = '0.1.0';
     var INTERCOM_CONTAINER = '#intercom-container';
 
     var customStylesheets = [];
@@ -294,7 +293,7 @@
             existingIntercomStylesheet.parentElement.insertBefore(customStyle, existingIntercomStylesheet.nextSibling);
         }
 
-        customStyle.innerHTML = '/* Intercom Fashion (v' + VERSION + ') */\n' + stylesheet;
+        customStyle.innerHTML = '/* Intercom Fashion (http://github.com/PageProofCom/IntercomFashion) */\n' + stylesheet;
     }
 
     /**
@@ -319,7 +318,6 @@
     }
 
     return {
-        version: VERSION,
         load: loadCustomStylesheet,
         style: addCustomStylesheet,
         config: setPresets,

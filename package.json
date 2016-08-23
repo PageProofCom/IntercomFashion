@@ -1,11 +1,26 @@
 {
   "name": "intercom-fashion",
-  "version": "0.1.0",
-  "description": "",
-  "author": {
-    "name": "Jacob Marshall",
-    "email": "oss@jacobmarshall.co",
-    "url": "https://github.com/jacobmarshall"
+  "version": "0.0.0",
+  "description": "A small library to help skin the new intercom messenger.",
+  "keywords": [
+    "intercom",
+    "theming",
+    "styling",
+    "css",
+    "webfonts"
+  ],
+  "homepage": "https://github.com/PageProofCom/IntercomFashion",
+  "bugs": {
+    "url" : "https://github.com/PageProofCom/IntercomFashion/issues"
+  },
+  "license": "MIT",
+  "maintainers": [
+    "Jacob Marshall <jacob@pageproof.com> (https://pageproof.com)"
+  ],
+  "main": "dist/intercom-fashion.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PageProofCom/IntercomFashion.git"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
