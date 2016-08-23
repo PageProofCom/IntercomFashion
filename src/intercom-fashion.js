@@ -7,6 +7,7 @@
         window.IntercomFashion = factory();
     }
 })(function () {
+    var VERSION = '1.0.0';
     var customStylesheets = [];
     var presets = {};
 
@@ -243,7 +244,7 @@
     }
 
     /**
-     * Sets the custom stylesheet.
+     * Applies the custom stylesheets to the various frames & host page.
      *
      * @see {applyCustomStylesheetsToFrame}
      */
@@ -253,6 +254,11 @@
         applyCustomStylesheetsToFrame(document.querySelector('.intercom-launcher-frame'));
     }
 
+    /**
+     * Applies the custom stylesheets to a frame or document.
+     *
+     * @param {HTMLIFrameElement|HTMLDocument|Element|null} frame
+     */
     function applyCustomStylesheetsToFrame(frame) {
         if (!frame) return;
 
@@ -271,7 +277,7 @@
             existingIntercomStylesheet.parentElement.insertBefore(customStyle, existingIntercomStylesheet.nextSibling);
         }
 
-        var stylesheet = '/* Intercom Fashion */\n';
+        var stylesheet = '/* Intercom Fashion (v' + VERSION + ') */\n';
         stylesheet += customStylesheets.join('\n') + '\n';
         stylesheet += getPresetsStylesheet();
 
@@ -293,6 +299,7 @@
     checkIntercomHasLoaded(applyCustomStylesheets);
 
     return {
+        version: VERSION,
         load: loadCustomStylesheet,
         style: addCustomStylesheet,
         config: setPresets,
