@@ -64,13 +64,14 @@
      * Loads an external css file and adds it to the custom stylesheet.
      *
      * @param {string} url
+     * @param {boolean} [addToStart]
      */
-    function loadCustomStylesheet(url) {
+    function loadCustomStylesheet(url, addToStart) {
         var xhr = new XMLHttpRequest();
         xhr.addEventListener('readystatechange', function() {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    addCustomStylesheet(xhr.responseText);
+                    addCustomStylesheet(xhr.responseText, addToStart);
                 } else {
                     console.warn('Unable to load custom stylesheet from ' + url + ' (http status: ' + xhr.status + ')');
                 }
@@ -84,9 +85,10 @@
      * Adds a stylesheet (text) to the custom stylesheet.
      *
      * @param {string} stylesheet
+     * @param {boolean} [addToStart]
      */
-    function addCustomStylesheet(stylesheet) {
-        customStylesheets.push(stylesheet);
+    function addCustomStylesheet(stylesheet, addToStart) {
+        customStylesheets[addToStart ? 'unshift' : 'push'](stylesheet);
         applyCustomStylesheets();
     }
 
@@ -251,17 +253,30 @@
      * @see {applyCustomStylesheetsToFrame}
      */
     function applyCustomStylesheets() {
-        applyCustomStylesheetsToFrame(document);
-        applyCustomStylesheetsToFrame(document.querySelector('.intercom-messenger-frame > iframe'));
-        applyCustomStylesheetsToFrame(document.querySelector('.intercom-launcher-frame'));
+        applyCustomStylesheetsToFrame(document, getPresetsStylesheet()); // Host document doesn't include any custom CSS (only presets)
+        applyCustomStylesheetsToFrame(document.querySelector('.intercom-messenger-frame > iframe'), getAllCustomStylesheets());
+        applyCustomStylesheetsToFrame(document.querySelector('.intercom-launcher-frame'), getAllCustomStylesheets());
     }
 
     /**
-     * Applies the custom stylesheets to a frame or document.
+     * Gets all the combined custom stylesheets.
+     *
+     * @returns {string}
+     */
+    function getAllCustomStylesheets() {
+        return (
+            customStylesheets.join('\n') + '\n' +
+            getPresetsStylesheet()
+        );
+    }
+
+    /**
+     * Applies a stylesheet to a frame or document.
      *
      * @param {HTMLIFrameElement|HTMLDocument|Element|null} frame
+     * @param {string} stylesheet
      */
-    function applyCustomStylesheetsToFrame(frame) {
+    function applyCustomStylesheetsToFrame(frame, stylesheet) {
         if (!frame) return;
 
         var frameDocument = frame.contentDocument || frame;
@@ -279,11 +294,7 @@
             existingIntercomStylesheet.parentElement.insertBefore(customStyle, existingIntercomStylesheet.nextSibling);
         }
 
-        var stylesheet = '/* Intercom Fashion (v' + VERSION + ') */\n';
-        stylesheet += customStylesheets.join('\n') + '\n';
-        stylesheet += getPresetsStylesheet();
-
-        customStyle.innerHTML = stylesheet;
+        customStyle.innerHTML = '/* Intercom Fashion (v' + VERSION + ') */\n' + stylesheet;
     }
 
     /**

@@ -34,6 +34,14 @@ IntercomFashion.init();
 IntercomFashion.load('/path/to/your/custom.css');
 ```
 
+### Loading custom webfonts (from a CSS file)
+
+The second argument of `IntercomFashion.load` is whether the CSS file should be added to the start of the embedded CSS (required for webfonts).
+
+```js
+IntercomFashion.load('/path/to/your/webfonts.css', true);
+```
+
 ### Adding inline CSS
 
 ```js
