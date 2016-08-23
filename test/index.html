@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Intercom Fashion</title>
+</head>
+<body>
+    <script src="../dist/intercom-fashion.js"></script>
+    <script>
+        IntercomFashion.load('custom.css');
+//        IntercomFashion.config({
+//            roundedBubbles: true,
+//            enableEmoji: false,
+//            userBubble: {color: 'white', background: '#138b3b'},
+//            adminBubble: {color: 'white', background: '#138b3b'},
+//            newConversation: {color: 'white', background: '#138b3b'},
+////            launcherButton: {icon: 'https://js.intercomcdn.com/images/launcher-close-icon.a9280154.png', background: 'blue'},
+//            header: {background: '#128438'},
+//            modal: {background: 'rgba(255, 255, 255, .9)'},
+//            conversation: {background: '#fff'}
+//        });
+        IntercomFashion.config({
+            userBubble: {color: '#455A64', background: '#ECEFF1', rounded: true},
+            adminBubble: {color: 'white', background: '#4CAF50', rounded: true},
+            newConversation: {background: '#F44336'},
+            launcherButton: {icon: 'google-logo.png', background: '#F44336'},
+            header: {background: '#2196F3'},
+            modal: {background: '#424242'},
+            conversation: {background: '#fff'},
+            tooltip: {background: '#000', color: '#f8f8f8', rounded: true}
+        });
+    </script>
+    <script>
+        window.intercomSettings = {
+            app_id: '{app_id}',
+        };
+    </script>
+    <script>
+        (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');
+        ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];
+        i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');
+        s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + intercomSettings.app_id;
+        var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){
+        w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+    </script>
+</body>
+</html>

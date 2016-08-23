@@ -1,0 +1,14 @@
+{
+  "name": "intercom-fashion",
+  "version": "1.0.0",
+  "description": "",
+  "author": {
+    "name": "Jacob Marshall",
+    "email": "oss@jacobmarshall.co",
+    "url": "https://github.com/jacobmarshall"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.0"
+  }
+}
