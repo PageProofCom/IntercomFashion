@@ -22,6 +22,12 @@ const IntercomFashion = require('intercom-fashion');
 <script src="node_modules/intercom-fashion/dist/intercom-fashion.js"></script>
 ```
 
+**then...**
+
+```js
+IntercomFashion.init();
+```
+
 ### Loading a custom CSS file
 
 ```js

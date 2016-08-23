@@ -7,18 +7,8 @@
 <body>
     <script src="../dist/intercom-fashion.js"></script>
     <script>
+        IntercomFashion.init();
         IntercomFashion.load('custom.css');
-//        IntercomFashion.config({
-//            roundedBubbles: true,
-//            enableEmoji: false,
-//            userBubble: {color: 'white', background: '#138b3b'},
-//            adminBubble: {color: 'white', background: '#138b3b'},
-//            newConversation: {color: 'white', background: '#138b3b'},
-////            launcherButton: {icon: 'https://js.intercomcdn.com/images/launcher-close-icon.a9280154.png', background: 'blue'},
-//            header: {background: '#128438'},
-//            modal: {background: 'rgba(255, 255, 255, .9)'},
-//            conversation: {background: '#fff'}
-//        });
         IntercomFashion.config({
             userBubble: {color: '#455A64', background: '#ECEFF1', rounded: true},
             adminBubble: {color: 'white', background: '#4CAF50', rounded: true},

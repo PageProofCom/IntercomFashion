@@ -8,6 +8,8 @@
     }
 })(function () {
     var VERSION = '1.0.0';
+    var INTERCOM_CONTAINER = '#intercom-container';
+
     var customStylesheets = [];
     var presets = {};
 
@@ -112,7 +114,7 @@
 
         if (presets.tooltip) {
             addPresetsRule(
-                '#intercom-container .intercom-comment-tooltip',
+                INTERCOM_CONTAINER + ' .intercom-comment-tooltip',
                 getRulesString({
                     'background-color': presets.tooltip.background,
                     'color': presets.tooltip.color,
@@ -124,7 +126,7 @@
         if (presets.conversation) {
             if (presets.conversation.background) {
                 addPresetsRule(
-                    '#intercom-container .intercom-conversation-background-app-color',
+                    INTERCOM_CONTAINER + ' .intercom-conversation-background-app-color',
                     getRulesString({
                         'background-color': presets.conversation.background,
                         'opacity': 1
@@ -136,7 +138,7 @@
         if (presets.modal) {
             if (presets.modal.background) {
                 addPresetsRule(
-                    '#intercom-container .intercom-modal-overlay',
+                    INTERCOM_CONTAINER + ' .intercom-modal-overlay',
                     getRulesString({
                         'background-color': presets.modal.background
                     })
@@ -147,7 +149,7 @@
         if (presets.launcherButton) {
             if (presets.launcherButton.icon) {
                 addPresetsRule(
-                    '#intercom-container .intercom-launcher-open-icon',
+                    INTERCOM_CONTAINER + ' .intercom-launcher-open-icon',
                     getRulesString({
                         'background-image': 'url(' + presets.launcherButton.icon + ')'
                     })
@@ -155,7 +157,7 @@
             }
             if (presets.launcherButton.background) {
                 addPresetsRule(
-                    '#intercom-container .intercom-launcher',
+                    INTERCOM_CONTAINER + ' .intercom-launcher',
                     getRulesString({
                         'background-color': presets.launcherButton.background,
                         'background-size': 'contain'
@@ -167,8 +169,8 @@
         if (presets.header) {
             if (presets.header.background) {
                 addPresetsRule(
-                    '#intercom-container .intercom-conversations-header,' +
-                    '#intercom-container .intercom-conversation-body-profile',
+                    INTERCOM_CONTAINER + ' .intercom-conversations-header,' +
+                    INTERCOM_CONTAINER + ' .intercom-conversation-body-profile',
                     getRulesString({
                         'background-color': presets.header.background
                     })
@@ -176,8 +178,8 @@
             }
             if (presets.header.color) {
                 addPresetsRule(
-                    '#intercom-container .intercom-conversations-header *,' +
-                    '#intercom-container .intercom-conversation-body-profile *',
+                    INTERCOM_CONTAINER + ' .intercom-conversations-header *,' +
+                    INTERCOM_CONTAINER + ' .intercom-conversation-body-profile *',
                     getRulesString({
                         'color': presets.header.color
                     })
@@ -187,7 +189,7 @@
 
         if (presets.newConversation) {
             addPresetsRule(
-                '#intercom-container .intercom-conversations-new-conversation-button',
+                INTERCOM_CONTAINER + ' .intercom-conversations-new-conversation-button',
                 getRulesString({
                     'background-color': presets.newConversation.background,
                     'color': presets.newConversation.color
@@ -197,7 +199,7 @@
 
         if (presets.userBubble) {
             addPresetsRule(
-                '#intercom-container .intercom-comment-container-user .intercom-comment',
+                INTERCOM_CONTAINER + ' .intercom-comment-container-user .intercom-comment',
                 getRulesString({
                     'background-color': presets.userBubble.background,
                     'color': presets.userBubble.color,
@@ -208,7 +210,7 @@
 
         if (presets.adminBubble) {
             addPresetsRule(
-                '#intercom-container .intercom-comment-container-admin .intercom-comment',
+                INTERCOM_CONTAINER + ' .intercom-comment-container-admin .intercom-comment',
                 getRulesString({
                     'background-color': presets.adminBubble.background,
                     'color': presets.adminBubble.color,
@@ -219,7 +221,7 @@
 
         if (('enableEmoji' in presets) && !presets.enableEmoji) {
             addPresetsRule(
-                '#intercom-container .intercom-composer-emoji-button',
+                INTERCOM_CONTAINER + ' .intercom-composer-emoji-button',
                 getRulesString({
                     'display': 'none'
                 })
@@ -295,14 +297,21 @@
         });
     }
 
-    checkIntercomMessengerHasBooted(registerIntercomEvents);
-    checkIntercomHasLoaded(applyCustomStylesheets);
+    /**
+     * Starts the timers...
+     *
+     * Bootstraps the library (and listens for when Intercom has loaded etc...)
+     */
+    function initialiseIntercomFashion() {
+        checkIntercomMessengerHasBooted(registerIntercomEvents);
+        checkIntercomHasLoaded(applyCustomStylesheets);
+    }
 
     return {
         version: VERSION,
         load: loadCustomStylesheet,
         style: addCustomStylesheet,
         config: setPresets,
-        ready: checkIntercomMessengerHasBooted,
+        init: initialiseIntercomFashion,
     };
 });
