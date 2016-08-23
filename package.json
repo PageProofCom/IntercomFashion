@@ -1,6 +1,6 @@
 {
   "name": "intercom-fashion",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A small library to help skin the new intercom messenger.",
   "keywords": [
     "intercom",
@@ -11,7 +11,7 @@
   ],
   "homepage": "https://github.com/PageProofCom/IntercomFashion",
   "bugs": {
-    "url" : "https://github.com/PageProofCom/IntercomFashion/issues"
+    "url": "https://github.com/PageProofCom/IntercomFashion/issues"
   },
   "license": "MIT",
   "maintainers": [
