@@ -30,7 +30,7 @@ const IntercomFashion = require('intercom-fashion');
 ```
 
 ```html
-<script src="node_modules/intercom-fashion/dist/intercom-fashion.js"></script>
+<script src="//npmcdn.com/intercom-fashion@1.0.0/dist/intercom-fashion.js"></script>
 ```
 
 **then...**
