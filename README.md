@@ -106,3 +106,7 @@ IntercomFashion.config({
 ## Screenshot
 
 ![Screenshot](./screenshot.png)
+
+## License
+
+MIT ❤️
