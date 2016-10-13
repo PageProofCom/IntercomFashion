@@ -1,0 +1,6 @@
+src
+test
+.git
+node_modules
+gulpfile.js
+screenshot.png
