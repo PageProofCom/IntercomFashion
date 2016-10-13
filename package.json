@@ -25,10 +25,19 @@
   "scripts": {
     "prepublish": "gulp build",
     "build": "gulp build",
-    "start": "gulp"
+    "start": "http-server test/static --port 8080 --host 0.0.0.0 & gulp",
+    "test:dev": "mocha test/intercom-fashion.spec.js --watch",
+    "test:ci": "istanbul cover node_modules/.bin/_mocha -- -- spec test/*.js",
+    "coveralls": "export COVERALLS_REPO_TOKEN=Cl641l9CfbvnqIRUNTiAwUtwJHO2gsWXU && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.14",
     "gulp": "^3.9.1",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "http-server": "^0.9.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6"
   }
 }
