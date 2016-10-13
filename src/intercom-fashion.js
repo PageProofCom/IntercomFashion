@@ -255,6 +255,7 @@
         applyCustomStylesheetsToFrame(document, getPresetsStylesheet()); // Host document doesn't include any custom CSS (only presets)
         applyCustomStylesheetsToFrame(document.querySelector('.intercom-messenger-frame > iframe'), getAllCustomStylesheets());
         applyCustomStylesheetsToFrame(document.querySelector('.intercom-launcher-frame'), getAllCustomStylesheets());
+        applyCustomStylesheetsToFrame(document.querySelector('.intercom-notifications-frame'), getAllCustomStylesheets());
     }
 
     /**
@@ -305,6 +306,10 @@
         Intercom('onShow', function () {
             setTimeout(applyCustomStylesheets);
         });
+        
+        Intercom('onUnreadCountChange', function () {
+            setTimeout(applyCustomStylesheets);
+        })
     }
 
     /**
