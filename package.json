@@ -22,6 +22,11 @@
     "type": "git",
     "url": "https://github.com/PageProofCom/IntercomFashion.git"
   },
+  "scripts": {
+    "prepublish": "gulp build",
+    "build": "gulp build",
+    "start": "gulp"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-uglify": "^2.0.0"
