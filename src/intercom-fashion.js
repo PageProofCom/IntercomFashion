@@ -7,27 +7,11 @@
         window.IntercomFashion = factory();
     }
 })(function () {
+    var _ = require('./intercom-fashion-utils');
     var INTERCOM_CONTAINER = '#intercom-container';
 
     var customStylesheets = [];
     var presets = {};
-
-    /**
-     * Keep checking a certain condition until it's truthy, and then invoke callback.
-     *
-     * @param {function} condition
-     * @param {function} callback
-     * @param {number} [interval]
-     */
-    function checkConditionPoll(condition, callback, interval) {
-        if (condition()) {
-            callback();
-        } else {
-            setTimeout(function() {
-                checkConditionPoll(condition, callback, interval);
-            }, interval);
-        }
-    }
 
     /**
      * Invokes the callback argument once the Intercom messenger has booted. Continues to poll
@@ -38,7 +22,7 @@
      * @param {number} [interval] A custom interval for polling (in ms)
      */
     function checkIntercomMessengerHasBooted(callback, interval) {
-        checkConditionPoll(
+        _.checkConditionPoll(
             function () {
                 return window.Intercom && window.Intercom.booted;
             },
@@ -50,7 +34,7 @@
     }
 
     function checkIntercomHasLoaded(callback) {
-        checkConditionPoll(
+        _.checkConditionPoll(
             function () {
                 return !!document.querySelector('.intercom-app-launcher-enabled');
             },
