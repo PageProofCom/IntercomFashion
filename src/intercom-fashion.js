@@ -290,8 +290,13 @@
 
         var existingIntercomStylesheet = frameDocument.getElementById('intercom-stylesheet');
         if (existingIntercomStylesheet) {
+            const parentElement = existingIntercomStylesheet.parentElement;
+
+            // Move any existing intercom stylesheet elements to the top, so they're easily overridden...
+            parentElement.insertBefore(existingIntercomStylesheet, parentElement.firstChild);
+
             // For the stylesheet within the host page, the stylesheet needs to be placed after the intercom stylesheet...
-            existingIntercomStylesheet.parentElement.insertBefore(customStyle, existingIntercomStylesheet.nextSibling);
+            parentElement.insertBefore(customStyle, existingIntercomStylesheet.nextSibling);
         }
 
         customStyle.innerHTML = '/* Intercom Fashion (http://github.com/PageProofCom/IntercomFashion) */\n' + stylesheet;
@@ -306,10 +311,10 @@
         Intercom('onShow', function () {
             setTimeout(applyCustomStylesheets);
         });
-        
+
         Intercom('onUnreadCountChange', function () {
             setTimeout(applyCustomStylesheets);
-        })
+        });
     }
 
     /**

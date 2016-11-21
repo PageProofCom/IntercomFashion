@@ -4,7 +4,7 @@
 
 ## Demo
 
-Check out our custom skin using Intercom Fashion [here](https://pageproof.com/?ref=gh) (coming soon).
+Check out our custom skin using Intercom Fashion [here](https://pageproof.com/?ref=gh).
 
 ## Features
 
@@ -12,6 +12,7 @@ Check out our custom skin using Intercom Fashion [here](https://pageproof.com/?r
 - Support for loading custom webfonts
 - Simple & easy presets like; user chat bubble color, new convo button color, etc...
 - Works with the new Intercom messenger (yes, the one using iframes!)
+- Automatically moves the base intercom styles out the way, so you can more easily customise them in your app
 
 ## Install
 
