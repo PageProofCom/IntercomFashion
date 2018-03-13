@@ -237,7 +237,7 @@
             var str = '';
             for (var property in rules) {
                 if (rules.hasOwnProperty(property) && rules[property]) {
-                    str += '\n\t' + property + ': ' + rules[property] + ';';
+                    str += '\n\t' + property + ': ' + rules[property] + ' !important;';
                 }
             }
             return str;
@@ -306,7 +306,7 @@
         Intercom('onShow', function () {
             setTimeout(applyCustomStylesheets);
         });
-        
+
         Intercom('onUnreadCountChange', function () {
             setTimeout(applyCustomStylesheets);
         })

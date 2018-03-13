@@ -2,3 +2,4 @@ dist
 node_modules
 .c9
 .idea
+.DS_Store
